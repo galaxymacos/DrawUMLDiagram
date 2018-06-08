@@ -7,21 +7,22 @@ namespace DrawUMLDiagram
     {
 
 
-        class UmlDisgram
+        class UmlDiagram
         {
-            private const int DiagramWidth = 50;
+            private static int DiagramWidth;
             private static readonly List<string> Infos = new List<string>();
+            private static readonly List<int> RowIndexes = new List<int>();
 
             public void DrawDiagram()
             {
-                AddInfoInForm(Row(DiagramWidth));
+                Row();
                 AddInfoInForm("Rectangle");
-                AddInfoInForm(Row(DiagramWidth));
+                Row();
                 AddInfoInForm(true,"x:int");
                 AddInfoInForm(true,"y:int");
                 AddInfoInForm(true,"width:int");
                 AddInfoInForm(true,"length:int");
-                AddInfoInForm(Row(DiagramWidth));
+                Row();
                 AddInfoInForm(false,"Rectangle()");
                 AddInfoInForm(false,"Rectangle(int x,int y,int length,int width)");
                 AddInfoInForm(false,"SetX(int x):void");
@@ -35,12 +36,15 @@ namespace DrawUMLDiagram
                 AddInfoInForm(false,"CalculateArea():int");
                 AddInfoInForm(false,"CalculateParimeter():int");
                 AddInfoInForm(false,"GetInfo():string");
-                AddInfoInForm(Row(DiagramWidth));
+                Row();
+                TidyUp();
                 PrintLines(Infos);
             }
 
             private static void AddInfoInForm(string str)
             {
+                if (str.Length > DiagramWidth)
+                    DiagramWidth = str.Length;
                 Infos.Add(str);
                 int maxLength = 0;
                 foreach (string s in Infos)
@@ -61,8 +65,20 @@ namespace DrawUMLDiagram
                 }
 
                 result += str;
+                
                 AddInfoInForm(result);
 
+            }
+
+            private static void TidyUp()
+            {
+                for (int i = 0; i < Infos.Count; i++)
+                {
+                    if (Infos[i] == " ")
+                    {
+                        Infos[i] = new string('-', DiagramWidth);
+                    }
+                }
             }
 
             private static void PrintLines(IEnumerable<string> list)
@@ -84,17 +100,20 @@ namespace DrawUMLDiagram
                     Console.WriteLine(new string(' ', rightBorder) + "|");
                 }
             }
+            
+            private static void Row()
+            {
+                Infos.Add(" ");
+                RowIndexes.Add(Infos.Count);
+            }
         }
 
-        private static string Row(int width)
-        {
-            return new string('-', width);
-        }
+        
 
         static void Main(string[] args)
         {
-            UmlDisgram newDisgram = new UmlDisgram();
-            newDisgram.DrawDiagram();
+            UmlDiagram newDiagram = new UmlDiagram();
+            newDiagram.DrawDiagram();
             Console.ReadKey();
         }
     }
