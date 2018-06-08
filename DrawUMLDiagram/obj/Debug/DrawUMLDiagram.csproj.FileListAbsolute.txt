@@ -1,0 +1,6 @@
+C:\Users\galax\RiderProjects\DrawUMLDiagram\DrawUMLDiagram\bin\Debug\DrawUMLDiagram.exe
+C:\Users\galax\RiderProjects\DrawUMLDiagram\DrawUMLDiagram\bin\Debug\DrawUMLDiagram.pdb
+C:\Users\galax\RiderProjects\DrawUMLDiagram\DrawUMLDiagram\obj\Debug\DrawUMLDiagram.csprojAssemblyReference.cache
+C:\Users\galax\RiderProjects\DrawUMLDiagram\DrawUMLDiagram\obj\Debug\DrawUMLDiagram.csproj.CoreCompileInputs.cache
+C:\Users\galax\RiderProjects\DrawUMLDiagram\DrawUMLDiagram\obj\Debug\DrawUMLDiagram.exe
+C:\Users\galax\RiderProjects\DrawUMLDiagram\DrawUMLDiagram\obj\Debug\DrawUMLDiagram.pdb
